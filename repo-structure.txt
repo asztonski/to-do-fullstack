@@ -1,0 +1,198 @@
+﻿|-- 📂 .git
+|   |-- 📂 hooks
+|   |   |-- 📄 applypatch-msg.sample
+|   |   |-- 📄 commit-msg.sample
+|   |   |-- 📄 fsmonitor-watchman.sample
+|   |   |-- 📄 post-update.sample
+|   |   |-- 📄 pre-applypatch.sample
+|   |   |-- 📄 pre-commit.sample
+|   |   |-- 📄 pre-merge-commit.sample
+|   |   |-- 📄 prepare-commit-msg.sample
+|   |   |-- 📄 pre-push.sample
+|   |   |-- 📄 pre-rebase.sample
+|   |   |-- 📄 pre-receive.sample
+|   |   |-- 📄 push-to-checkout.sample
+|   |   |-- 📄 sendemail-validate.sample
+|   |   |-- 📄 update.sample
+|   |-- 📂 info
+|   |   |-- 📄 exclude
+|   |-- 📂 logs
+|   |   |-- 📂 refs
+|   |   |   |-- 📂 heads
+|   |   |   |   |-- 📄 master
+|   |   |   |   |-- 📄 plain-app
+|   |   |   |-- 📂 remotes
+|   |   |   |   |-- 📂 origin
+|   |   |   |   |   |-- 📄 master
+|   |   |   |   |   |-- 📄 plain-app
+|   |   |-- 📄 HEAD
+|   |-- 📂 objects
+|   |   |-- 📂 01
+|   |   |   |-- 📄 a4bf784aa95d23dd70e252543d406ea4f0018e
+|   |   |-- 📂 0a
+|   |   |   |-- 📄 0bd360ae71c473a90f6f485178632ba51fa68f
+|   |   |   |-- 📄 38a4fe87e415f20d7649abfa0739bff83014d3
+|   |   |-- 📂 0b
+|   |   |   |-- 📄 c48406b154e7bdfc76e5c13f00b7115d1be576
+|   |   |-- 📂 0c
+|   |   |   |-- 📄 589eccd4d48e270e161a1ab91baee5e5f4b4bc
+|   |   |-- 📂 0f
+|   |   |   |-- 📄 2c469e0e036fb03d84cf193db191b78d7ab45f
+|   |   |-- 📂 10
+|   |   |   |-- 📄 df1bb5e6aabb5189dd9f7c2dfef59593e70e41
+|   |   |-- 📂 30
+|   |   |   |-- 📄 2c2c70d64f03532f7cea2f7811cebc8799268a
+|   |   |-- 📂 31
+|   |   |   |-- 📄 a3e5aae97b7b057a83af0dea3adee0db219ff3
+|   |   |-- 📂 34
+|   |   |   |-- 📄 22614458de9b5935bb22e14d957aed40f52aa1
+|   |   |   |-- 📄 8a9b88e15a665a216660e1f4d4d497736a1488
+|   |   |-- 📂 3d
+|   |   |   |-- 📄 f1e90f45e5facbd52aba0f62889d95c12126c3
+|   |   |-- 📂 3e
+|   |   |   |-- 📄 2546585c57d999941958a94f1f539c5b98a8e3
+|   |   |   |-- 📄 73db5232a88940e021eab47be77ec9603982e7
+|   |   |-- 📂 44
+|   |   |   |-- 📄 b151430036f7ddad6455c8a62d8b66b73b7ade
+|   |   |-- 📂 55
+|   |   |   |-- 📄 7b37c44d5cb352ff331f90e7fba0189cdfa65e
+|   |   |-- 📂 5c
+|   |   |   |-- 📄 066daefa4363104e1689233d6f14247d7a3c9d
+|   |   |-- 📂 5d
+|   |   |   |-- 📄 22d24793e98560518ba3ebf9e74155e0ad00e7
+|   |   |-- 📂 5e
+|   |   |   |-- 📄 c10e8d19f572b9913ad3cd91a2615243d42fbf
+|   |   |-- 📂 5f
+|   |   |   |-- 📄 82cb8be81c931d521c2351774cfe70bc9b5a2f
+|   |   |-- 📂 60
+|   |   |   |-- 📄 00c2682ee1be68c5f005a6c9a37083f6034e80
+|   |   |-- 📂 65
+|   |   |   |-- 📄 e3bacf0d3e5a9cd4c0881bc1a9b2a447e639cf
+|   |   |-- 📂 69
+|   |   |   |-- 📄 98750d213026b601ba8750d3b2f7243b9572af
+|   |   |-- 📂 6c
+|   |   |   |-- 📄 87de9bb3358469122cc991d5cf578927246184
+|   |   |-- 📂 70
+|   |   |   |-- 📄 70adc21354f79fe77815f9584325cfe6b9ffb3
+|   |   |   |-- 📄 769bdac61d9b1d6bcfe8eca0fcaf1e595a9d62
+|   |   |-- 📂 82
+|   |   |   |-- 📄 4ae6db009388d9b5ffdb53e02972900f8a9568
+|   |   |-- 📂 88
+|   |   |   |-- 📄 c8ec7d40cbdc8e6150ced2a8c115e7cb7f5b3f
+|   |   |-- 📂 8b
+|   |   |   |-- 📄 bf42b35c4f2563be0a3481b647c3f9490edc63
+|   |   |-- 📂 8d
+|   |   |   |-- 📄 e5b4473aa2ea7a8f0982f6da8f44458daf4665
+|   |   |-- 📂 94
+|   |   |   |-- 📄 c0b2fc152a086447a04f62793957235d2475be
+|   |   |-- 📂 97
+|   |   |   |-- 📄 d7b00641cfb114b3598a5e76646eb4b92db6ac
+|   |   |-- 📂 9b
+|   |   |   |-- 📄 4e272238ab1f1075088554515fd46cefb16985
+|   |   |-- 📂 9d
+|   |   |   |-- 📄 780ed37111c6752a4ebcad67df0dd07e68e412
+|   |   |-- 📂 a5
+|   |   |   |-- 📄 47bf36d8d11a4f89c59c144f24795749086dd1
+|   |   |-- 📂 a9
+|   |   |   |-- 📄 08514d6be8c27cccb31a37dc4d4bfbd2b972e4
+|   |   |   |-- 📄 bc5fb87d6961fad1a475e8265ec467945e4123
+|   |   |-- 📂 ab
+|   |   |   |-- 📄 9f135ac2b74cd38d88178767de30f120afbf4b
+|   |   |-- 📂 ad
+|   |   |   |-- 📄 09b4c82d7cde94c0f62a00e25ba3ba8474f01a
+|   |   |-- 📂 c2
+|   |   |   |-- 📄 a44e2ff1851f4074ff1f1844eea78b6dee91e9
+|   |   |-- 📂 c5
+|   |   |   |-- 📄 3478f0f54d394d671d4a3c06329d1c782da0eb
+|   |   |-- 📂 d0
+|   |   |   |-- 📄 7c6fbcfb7834280c97d510a72e053bff20c46b
+|   |   |-- 📂 d8
+|   |   |   |-- 📄 e70a0c350f836aaf8e240c8b0bb1efa87adf4b
+|   |   |-- 📂 dd
+|   |   |   |-- 📄 19934ed968e02269aed5f39214d595ed9fc046
+|   |   |-- 📂 e0
+|   |   |   |-- 📄 38032fa06de70b1ebf07614f8809b395922f42
+|   |   |-- 📂 e1
+|   |   |   |-- 📄 08d8e20587c0bb640e06ada9c583a74783722c
+|   |   |-- 📂 e3
+|   |   |   |-- 📄 24ccabd5cf685151484993f656c065d262b34f
+|   |   |-- 📂 e6
+|   |   |   |-- 📄 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+|   |   |-- 📂 e7
+|   |   |   |-- 📄 b8dfb1b2a60bd50538bec9f876511b9cac21e3
+|   |   |-- 📂 ec
+|   |   |   |-- 📄 2b712d301e7ddeca8327fc4b967069cc82047b
+|   |   |-- 📂 f4
+|   |   |   |-- 📄 2ebda7f664ad9ecc09ec34ba2714befb4041f0
+|   |   |-- 📂 f7
+|   |   |   |-- 📄 7c651a387a01de99ed0cc6276aa96a7d9de179
+|   |   |-- 📂 fc
+|   |   |   |-- 📄 aad0fe939be3942c4037c5c9ae41724d99b01b
+|   |   |-- 📂 fd
+|   |   |   |-- 📄 3b758d9c5bdd978006b8429e0caaa761644749
+|   |   |-- 📂 info
+|   |   |-- 📂 pack
+|   |-- 📂 refs
+|   |   |-- 📂 heads
+|   |   |   |-- 📄 master
+|   |   |   |-- 📄 plain-app
+|   |   |-- 📂 remotes
+|   |   |   |-- 📂 origin
+|   |   |   |   |-- 📄 master
+|   |   |   |   |-- 📄 plain-app
+|   |   |-- 📂 tags
+|   |-- 📄 COMMIT_EDITMSG
+|   |-- 📄 config
+|   |-- 📄 description
+|   |-- 📄 FETCH_HEAD
+|   |-- 📄 HEAD
+|   |-- 📄 index
+|   |-- 📄 ORIG_HEAD
+|-- 📂 .vscode
+|   |-- 📄 settings.json
+|-- 📂 client
+|   |-- 📂 public
+|   |   |-- 📄 vite.svg
+|   |-- 📂 src
+|   |   |-- 📂 assets
+|   |   |   |-- 📄 react.svg
+|   |   |-- 📂 components
+|   |   |   |-- 📄 Footer.tsx
+|   |   |   |-- 📄 Header.tsx
+|   |   |   |-- 📄 LoginForm.tsx
+|   |   |   |-- 📄 Main.tsx
+|   |   |   |-- 📄 Page.tsx
+|   |   |   |-- 📄 TodoItem.tsx
+|   |   |   |-- 📄 TodoList.tsx
+|   |   |-- 📂 context
+|   |   |   |-- 📄 AuthContext.tsx
+|   |   |   |-- 📄 TodosContext.tsx
+|   |   |-- 📂 hooks
+|   |   |   |-- 📄 useAuth.ts
+|   |   |   |-- 📄 useTodos.ts
+|   |   |-- 📂 pages
+|   |   |   |-- 📄 Dashboard.tsx
+|   |   |   |-- 📄 History.tsx
+|   |   |   |-- 📄 Login.tsx
+|   |   |-- 📂 services
+|   |   |   |-- 📄 api.ts
+|   |   |-- 📄 App.tsx
+|   |   |-- 📄 index.css
+|   |   |-- 📄 main.tsx
+|   |   |-- 📄 routes.tsx
+|   |-- 📄 index.html
+|-- 📂 server
+|   |-- 📂 prisma
+|   |   |-- 📄 schema.prisma
+|   |-- 📄 .env
+|   |-- 📄 index.js
+|-- 📄 .env
+|-- 📄 .gitignore
+|-- 📄 eslint.config.js
+|-- 📄 package.json
+|-- 📄 package-lock.json
+|-- 📄 README.md
+|-- 📄 repo-structure.txt
+|-- 📄 tailwind.config.js
+|-- 📄 tsconfig.json
+|-- 📄 vite.config.ts

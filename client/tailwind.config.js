@@ -1,7 +1,9 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
-  content: ["./client/index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}", // ← make sure this path is right
+  ],
   theme: {
     extend: {
       colors: {
@@ -11,6 +13,7 @@ const config: Config = {
         yellow: "#f7f06d",
         purple: "#c792ea",
         green: "#29f8ac",
+        white: "#ffffff",
       },
       fontFamily: {
         synth: ['"Press Start 2P"', "monospace"],
@@ -19,5 +22,3 @@ const config: Config = {
   },
   plugins: [],
 };
-
-export default config;

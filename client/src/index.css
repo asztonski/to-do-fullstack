@@ -1,0 +1,52 @@
+/* -------------------------------------------------------------
+   SynthTodo — global styles + Tailwind entry
+   -------------------------------------------------------------
+   Tailwind config lives TWO folders up (repo root),
+   so we point to it explicitly:
+----------------------------------------------------------------*/
+@config "../tailwind.config.js";
+
+/* Optional: Synthwave Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+/* Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------------------------------------
+   Extra synthwave goodies (optional)
+----------------------------------------------------------------*/
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    margin: 0
+}
+
+/* Neon link hover */
+a {
+  @apply transition-all duration-150;
+}
+a:hover {
+  text-shadow: 0 0 6px theme("colors.pink");
+}
+
+/* CRT scan-lines overlay — add className="crt" to <body> or root div */
+@layer utilities {
+  .crt::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0 2px,
+      rgba(0, 0, 0, 0.05) 2px 4px
+    );
+    mix-blend-mode: overlay;
+  }
+}
