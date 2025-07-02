@@ -5,7 +5,7 @@ interface MainProps {
 
 const Main: React.FC<MainProps> = ({ children, className= "", }) => {
   return (
-    <main className={`flex flex-col items-center justify-center h-screen bg-gray-100 flex-1 ${className}`}>
+    <main className={`flex flex-col items-center justify-center h-screen bg-background flex-1 ${className}`}>
       {children}
     </main>
   );

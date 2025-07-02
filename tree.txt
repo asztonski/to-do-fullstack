@@ -1,0 +1,240 @@
++-- .vscode
++-- client
++-- node_modules
++-- server
++-- .env
++-- .gitignore
++-- eslint.config.js
++-- package-lock.json
++-- package.json
++-- README.md
++-- repo-structure.txt
++-- tree.txt
++-- tsconfig.json
++-- vite.config.ts
+¦   +-- hooks
+¦   +-- info
+¦   +-- logs
+¦   +-- objects
+¦   +-- refs
+¦   +-- COMMIT_EDITMSG
+¦   +-- config
+¦   +-- description
+¦   +-- FETCH_HEAD
+¦   +-- HEAD
+¦   +-- index
+¦   +-- ORIG_HEAD
+¦   ¦   +-- applypatch-msg.sample
+¦   ¦   +-- commit-msg.sample
+¦   ¦   +-- fsmonitor-watchman.sample
+¦   ¦   +-- post-update.sample
+¦   ¦   +-- pre-applypatch.sample
+¦   ¦   +-- pre-commit.sample
+¦   ¦   +-- pre-merge-commit.sample
+¦   ¦   +-- pre-push.sample
+¦   ¦   +-- pre-rebase.sample
+¦   ¦   +-- pre-receive.sample
+¦   ¦   +-- prepare-commit-msg.sample
+¦   ¦   +-- push-to-checkout.sample
+¦   ¦   +-- sendemail-validate.sample
+¦   ¦   +-- update.sample
+¦   ¦   +-- exclude
+¦   ¦   +-- refs
+¦   ¦   +-- HEAD
+¦   ¦   ¦   +-- heads
+¦   ¦   ¦   +-- remotes
+¦   ¦   ¦   ¦   +-- master
+¦   ¦   ¦   ¦   +-- plain-app
+¦   ¦   ¦   ¦   +-- origin
+¦   ¦   ¦   ¦   ¦   +-- master
+¦   ¦   ¦   ¦   ¦   +-- plain-app
+¦   ¦   +-- 01
+¦   ¦   +-- 09
+¦   ¦   +-- 0a
+¦   ¦   +-- 0b
+¦   ¦   +-- 0c
+¦   ¦   +-- 0f
+¦   ¦   +-- 10
+¦   ¦   +-- 18
+¦   ¦   +-- 19
+¦   ¦   +-- 21
+¦   ¦   +-- 22
+¦   ¦   +-- 2d
+¦   ¦   +-- 30
+¦   ¦   +-- 31
+¦   ¦   +-- 34
+¦   ¦   +-- 3c
+¦   ¦   +-- 3d
+¦   ¦   +-- 3e
+¦   ¦   +-- 41
+¦   ¦   +-- 44
+¦   ¦   +-- 4b
+¦   ¦   +-- 55
+¦   ¦   +-- 5c
+¦   ¦   +-- 5d
+¦   ¦   +-- 5e
+¦   ¦   +-- 5f
+¦   ¦   +-- 60
+¦   ¦   +-- 64
+¦   ¦   +-- 65
+¦   ¦   +-- 69
+¦   ¦   +-- 6c
+¦   ¦   +-- 70
+¦   ¦   +-- 76
+¦   ¦   +-- 82
+¦   ¦   +-- 88
+¦   ¦   +-- 8b
+¦   ¦   +-- 8d
+¦   ¦   +-- 94
+¦   ¦   +-- 97
+¦   ¦   +-- 9b
+¦   ¦   +-- 9d
+¦   ¦   +-- 9e
+¦   ¦   +-- a5
+¦   ¦   +-- a7
+¦   ¦   +-- a9
+¦   ¦   +-- ab
+¦   ¦   +-- ad
+¦   ¦   +-- b7
+¦   ¦   +-- c2
+¦   ¦   +-- c5
+¦   ¦   +-- c8
+¦   ¦   +-- d0
+¦   ¦   +-- d2
+¦   ¦   +-- d8
+¦   ¦   +-- dd
+¦   ¦   +-- df
+¦   ¦   +-- e0
+¦   ¦   +-- e1
+¦   ¦   +-- e3
+¦   ¦   +-- e6
+¦   ¦   +-- e7
+¦   ¦   +-- e9
+¦   ¦   +-- ec
+¦   ¦   +-- f2
+¦   ¦   +-- f4
+¦   ¦   +-- f7
+¦   ¦   +-- fc
+¦   ¦   +-- fd
+¦   ¦   +-- info
+¦   ¦   +-- pack
+¦   ¦   ¦   +-- a4bf784aa95d23dd70e252543d406ea4f0018e
+¦   ¦   ¦   +-- a2241af6212eb495d97c25d1fa6cc9dece314a
+¦   ¦   ¦   +-- 0bd360ae71c473a90f6f485178632ba51fa68f
+¦   ¦   ¦   +-- 38a4fe87e415f20d7649abfa0739bff83014d3
+¦   ¦   ¦   +-- c48406b154e7bdfc76e5c13f00b7115d1be576
+¦   ¦   ¦   +-- 589eccd4d48e270e161a1ab91baee5e5f4b4bc
+¦   ¦   ¦   +-- 2c469e0e036fb03d84cf193db191b78d7ab45f
+¦   ¦   ¦   +-- df1bb5e6aabb5189dd9f7c2dfef59593e70e41
+¦   ¦   ¦   +-- 5b08718a3848ce3bf889ebb339f39c2af33772
+¦   ¦   ¦   +-- 250e5b72e7b10d44607e7a163f72f890dd5580
+¦   ¦   ¦   +-- 782b37581a587a16e469cb43f67dd6c618e10a
+¦   ¦   ¦   +-- 4a4793e7e50b696ed982a9e10ba79ecd405fdb
+¦   ¦   ¦   +-- d4c134607a7b842bafa985497aecc29a9378a6
+¦   ¦   ¦   +-- 2c2c70d64f03532f7cea2f7811cebc8799268a
+¦   ¦   ¦   +-- a3e5aae97b7b057a83af0dea3adee0db219ff3
+¦   ¦   ¦   +-- 22614458de9b5935bb22e14d957aed40f52aa1
+¦   ¦   ¦   +-- 8a9b88e15a665a216660e1f4d4d497736a1488
+¦   ¦   ¦   +-- 7fa69a0f2020139d3d03e782fe794dbf3e788c
+¦   ¦   ¦   +-- 4b1735abaadb7ef989a26aaeebb9dbda2cb4ab
+¦   ¦   ¦   +-- f1e90f45e5facbd52aba0f62889d95c12126c3
+¦   ¦   ¦   +-- 2546585c57d999941958a94f1f539c5b98a8e3
+¦   ¦   ¦   +-- 73db5232a88940e021eab47be77ec9603982e7
+¦   ¦   ¦   +-- 21e0ae99416cc7e0d1e15552dcb5ce5ca8dffa
+¦   ¦   ¦   +-- b151430036f7ddad6455c8a62d8b66b73b7ade
+¦   ¦   ¦   +-- c4892d05bd997a6ad4d57805cd8b05592d5be6
+¦   ¦   ¦   +-- 7b37c44d5cb352ff331f90e7fba0189cdfa65e
+¦   ¦   ¦   +-- 066daefa4363104e1689233d6f14247d7a3c9d
+¦   ¦   ¦   +-- 22d24793e98560518ba3ebf9e74155e0ad00e7
+¦   ¦   ¦   +-- c10e8d19f572b9913ad3cd91a2615243d42fbf
+¦   ¦   ¦   +-- 82cb8be81c931d521c2351774cfe70bc9b5a2f
+¦   ¦   ¦   +-- 00c2682ee1be68c5f005a6c9a37083f6034e80
+¦   ¦   ¦   +-- ea77dc6503c6782646abea9532eedee0a70ad8
+¦   ¦   ¦   +-- e3bacf0d3e5a9cd4c0881bc1a9b2a447e639cf
+¦   ¦   ¦   +-- 98750d213026b601ba8750d3b2f7243b9572af
+¦   ¦   ¦   +-- 87de9bb3358469122cc991d5cf578927246184
+¦   ¦   ¦   +-- 70adc21354f79fe77815f9584325cfe6b9ffb3
+¦   ¦   ¦   +-- 769bdac61d9b1d6bcfe8eca0fcaf1e595a9d62
+¦   ¦   ¦   +-- dde120a88abd06b5c9a347bd181b81b388fca2
+¦   ¦   ¦   +-- 4ae6db009388d9b5ffdb53e02972900f8a9568
+¦   ¦   ¦   +-- c8ec7d40cbdc8e6150ced2a8c115e7cb7f5b3f
+¦   ¦   ¦   +-- bf42b35c4f2563be0a3481b647c3f9490edc63
+¦   ¦   ¦   +-- e5b4473aa2ea7a8f0982f6da8f44458daf4665
+¦   ¦   ¦   +-- c0b2fc152a086447a04f62793957235d2475be
+¦   ¦   ¦   +-- d7b00641cfb114b3598a5e76646eb4b92db6ac
+¦   ¦   ¦   +-- 4e272238ab1f1075088554515fd46cefb16985
+¦   ¦   ¦   +-- 780ed37111c6752a4ebcad67df0dd07e68e412
+¦   ¦   ¦   +-- a35096f8d738a1234bdf66e5d520d1618ffd21
+¦   ¦   ¦   +-- 47bf36d8d11a4f89c59c144f24795749086dd1
+¦   ¦   ¦   +-- 150f3cb823ef9f1a9daf8bee7defc4f8773dc7
+¦   ¦   ¦   +-- 08514d6be8c27cccb31a37dc4d4bfbd2b972e4
+¦   ¦   ¦   +-- bc5fb87d6961fad1a475e8265ec467945e4123
+¦   ¦   ¦   +-- 9f135ac2b74cd38d88178767de30f120afbf4b
+¦   ¦   ¦   +-- 09b4c82d7cde94c0f62a00e25ba3ba8474f01a
+¦   ¦   ¦   +-- cb0f86b853908ae1a643b840f65e337d2ca737
+¦   ¦   ¦   +-- a44e2ff1851f4074ff1f1844eea78b6dee91e9
+¦   ¦   ¦   +-- 3478f0f54d394d671d4a3c06329d1c782da0eb
+¦   ¦   ¦   +-- dfbf67a9f23568b4795b4bc53b3c20707c251a
+¦   ¦   ¦   +-- 7c6fbcfb7834280c97d510a72e053bff20c46b
+¦   ¦   ¦   +-- 4bec690eb81d02b03a725d2d0052a669f8bb80
+¦   ¦   ¦   +-- e70a0c350f836aaf8e240c8b0bb1efa87adf4b
+¦   ¦   ¦   +-- 19934ed968e02269aed5f39214d595ed9fc046
+¦   ¦   ¦   +-- 66136cf168b5c314104a7bc81b739b7535fc28
+¦   ¦   ¦   +-- 38032fa06de70b1ebf07614f8809b395922f42
+¦   ¦   ¦   +-- 4c54c48a921d722c2aebea3e9a9ecb2dc24fd8
+¦   ¦   ¦   +-- 08d8e20587c0bb640e06ada9c583a74783722c
+¦   ¦   ¦   +-- 1b00ebead74286c9e2844d16baad6af262edf1
+¦   ¦   ¦   +-- 24ccabd5cf685151484993f656c065d262b34f
+¦   ¦   ¦   +-- 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+¦   ¦   ¦   +-- b8dfb1b2a60bd50538bec9f876511b9cac21e3
+¦   ¦   ¦   +-- 080ab4d7e7dab9d03ed008d2360823d224f4bb
+¦   ¦   ¦   +-- 7b487d415b2c030aa96a7d5dec0e712cd9a9bd
+¦   ¦   ¦   +-- 2b712d301e7ddeca8327fc4b967069cc82047b
+¦   ¦   ¦   +-- abe768022c03539838a298d1216a9866e6d1ac
+¦   ¦   ¦   +-- 2ebda7f664ad9ecc09ec34ba2714befb4041f0
+¦   ¦   ¦   +-- 7c651a387a01de99ed0cc6276aa96a7d9de179
+¦   ¦   ¦   +-- aad0fe939be3942c4037c5c9ae41724d99b01b
+¦   ¦   ¦   +-- 3b758d9c5bdd978006b8429e0caaa761644749
+¦   ¦   +-- heads
+¦   ¦   +-- remotes
+¦   ¦   +-- tags
+¦   ¦   ¦   +-- master
+¦   ¦   ¦   +-- plain-app
+¦   ¦   ¦   +-- origin
+¦   ¦   ¦   ¦   +-- master
+¦   ¦   ¦   ¦   +-- plain-app
+¦   +-- settings.json
+¦   +-- public
+¦   +-- src
+¦   +-- index.html
+¦   ¦   +-- vite.svg
+¦   ¦   +-- assets
+¦   ¦   +-- components
+¦   ¦   +-- context
+¦   ¦   +-- hooks
+¦   ¦   +-- pages
+¦   ¦   +-- services
+¦   ¦   +-- App.tsx
+¦   ¦   +-- index.css
+¦   ¦   +-- main.tsx
+¦   ¦   +-- routes.tsx
+¦   ¦   ¦   +-- react.svg
+¦   ¦   ¦   +-- Footer.tsx
+¦   ¦   ¦   +-- Header.tsx
+¦   ¦   ¦   +-- LoginForm.tsx
+¦   ¦   ¦   +-- Main.tsx
+¦   ¦   ¦   +-- Page.tsx
+¦   ¦   ¦   +-- TodoItem.tsx
+¦   ¦   ¦   +-- TodoList.tsx
+¦   ¦   ¦   +-- AuthContext.tsx
+¦   ¦   ¦   +-- TodosContext.tsx
+¦   ¦   ¦   +-- useAuth.ts
+¦   ¦   ¦   +-- useTodos.ts
+¦   ¦   ¦   +-- Dashboard.tsx
+¦   ¦   ¦   +-- History.tsx
+¦   ¦   ¦   +-- Login.tsx
+¦   ¦   ¦   +-- api.ts
+¦   +-- prisma
+¦   +-- .env
+¦   +-- index.js
+¦   ¦   +-- schema.prisma

@@ -1,5 +1,5 @@
 import Page from "./components/Page";
-import TodoList from "./components/TodoList";
+import TodoList from "./components/List/TodoList";
 
 const Dashboard: React.FC = () => (
   <Page title="Dashboard">
