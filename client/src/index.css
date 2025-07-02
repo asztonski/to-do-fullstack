@@ -1,41 +1,50 @@
-/* -------------------------------------------------------------
-   SynthTodo — global styles + Tailwind entry
-   -------------------------------------------------------------
-   Tailwind config lives TWO folders up (repo root),
-   so we point to it explicitly:
-----------------------------------------------------------------*/
-@config "../tailwind.config.js";
+/* ------------------------------------------------------------------
+   SynthTodo – global stylesheet (Tailwind v4)
+   ------------------------------------------------------------------ */
 
-/* Optional: Synthwave Google Font */
+/* 1️⃣ Load the 8-bit font **before** any other @imports */
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-/* Tailwind layers */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* 2️⃣ Pull Tailwind in */
+@import "tailwindcss";
 
-/* -------------------------------------------------------------
-   Extra synthwave goodies (optional)
-----------------------------------------------------------------*/
+/* 3️⃣ Declare design tokens */
+@theme {
+  /* ✨ Synthwave colours */
+  --color-background: #2a2139;
+  --color-pink:       #ff7edb;
+  --color-blue:       #6be4ff;
+  --color-yellow:     #f7f06d;
+  --color-purple:     #c792ea;
+  --color-green:      #29f8ac;
 
-/* Smooth scrolling for anchor links */
-html {
-  scroll-behavior: smooth;
+  /* Extra neon accents */
+  --color-neon-red:    #ff355e;
+  --color-neon-orange: #ff9a00;
+  --color-neon-cyan:   #00ffff;
+  --color-neon-violet: #d400ff;
+
+  /* Neutrals */
+  --color-off-white: #f8f8ff;
+  --color-black:     #000000;   /* alias to default black */
+  --color-white:     #ffffff;   /* alias to default white */
+
+  /* 🕹️ Pixel font utility → `.font-synth` */
+  --font-synth: "Press Start 2P", monospace;
 }
 
-body {
-    margin: 0
-}
+/* ------------------------------------------------------------------
+   Minimal global tweaks
+   ------------------------------------------------------------------ */
+
+html { scroll-behavior: smooth; }
+body { margin: 0; }
 
 /* Neon link hover */
-a {
-  @apply transition-all duration-150;
-}
-a:hover {
-  text-shadow: 0 0 6px theme("colors.pink");
-}
+a { @apply transition-all duration-150; }
+a:hover { text-shadow: 0 0 6px var(--color-pink); }
 
-/* CRT scan-lines overlay — add className="crt" to <body> or root div */
+/* CRT scan-lines overlay — use class `crt` on <body> */
 @layer utilities {
   .crt::before {
     content: "";
@@ -44,8 +53,8 @@ a:hover {
     pointer-events: none;
     background-image: repeating-linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0) 0 2px,
-      rgba(0, 0, 0, 0.05) 2px 4px
+      rgba(0,0,0,0) 0 2px,
+      rgba(0,0,0,0.05) 2px 4px
     );
     mix-blend-mode: overlay;
   }
