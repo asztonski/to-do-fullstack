@@ -3,11 +3,11 @@ interface MainProps {
   className?: string;
 }
 
-const Main: React.FC<MainProps> = ({ children, className= "", }) => {
+const Main: React.FC<divProps> = ({ children, className= "", }) => {
   return (
-    <main className={`flex flex-col items-center justify-center h-screen bg-background flex-1 ${className}`}>
+    <div className={`flex flex-col items-center justify-center h-screen bg-background flex-1 ${className}`}>
       {children}
-    </main>
+    </div>
   );
 };
 

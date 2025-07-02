@@ -1,17 +1,16 @@
-import { useTodoStore } from "../../store/todo"
+import Button from "../UI/button/Button";
+import { useTodoStore } from "../../store/todo";
 
 interface TodoItemProps {
-  id: string
+  id: string;
 }
 
 export default function TodoItem({ id }: TodoItemProps) {
-  /* --- subscribe only to the bits we need --- */
-  const todo = useTodoStore((s) => s.todos.find((t) => t.id === id))
-  const toggle = useTodoStore((s) => s.toggleTodo)
-  const remove = useTodoStore((s) => s.removeTodo)
+  const todo   = useTodoStore((s) => s.todos.find((t) => t.id === id));
+  const toggle = useTodoStore((s) => s.toggleTodo);
+  const remove = useTodoStore((s) => s.removeTodo);
 
-  /* item might disappear (e.g., filtered list) */
-  if (!todo) return null
+  if (!todo) return null;
 
   return (
     <li className="flex items-center justify-between rounded-md border border-purple/40 bg-background/60 px-4 py-2">
@@ -24,20 +23,21 @@ export default function TodoItem({ id }: TodoItemProps) {
         />
         <span
           className={`text-sm ${
-            todo.completed ? 'line-through text-purple/50' : 'text-white'
+            todo.completed ? "line-through text-purple/50" : "text-white"
           }`}
         >
           {todo.text}
         </span>
       </label>
 
-      <button
+      <Button
+        variant="danger"
         aria-label="Delete"
         onClick={() => remove(id)}
-        className="text-purple/60 transition hover:text-yellow"
+        className="px-2 py-0"
       >
-        ✕
-      </button>
+        <span>x</span>
+      </Button>
     </li>
-  )
+  );
 }

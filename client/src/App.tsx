@@ -1,13 +1,38 @@
+import { usePageStore } from "./store/page";
+
 import Page from "./components/Page";
-import TodoList from "./components/List/TodoList";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import User from "./pages/User";
+import History from "./pages/History";
 
-const Dashboard: React.FC = () => (
-  <Page title="Dashboard">
-    <h1 className="mb-8 font-synth text-3xl text-yellow drop-shadow-lg">
-      Today’s Tasks
-    </h1>
-    <TodoList />
-  </Page>
-);
+export default function App() {
+  const page = usePageStore((s) => s.page);
 
-export default Dashboard;
+  /* pick the current page component */
+  let content: React.ReactElement;
+  switch (page) {
+    case "login":
+      content = <Login />;
+      break;
+    case "account":
+      content = <User />;
+      break;
+    case "history":
+      content = <History />;
+      break;
+    case "dashboard":
+    default:
+      content = <Dashboard />;
+  }
+
+  /* title for the <Page> wrapper */
+  const titles: Record<string, string> = {
+    dashboard: "Dashboard",
+    login: "Login",
+    account: "Account",
+    history: "History",
+  };
+
+  return <Page title={titles[page]}>{content}</Page>;
+}
