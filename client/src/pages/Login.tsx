@@ -17,7 +17,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex items-center justify-center">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-sm space-y-4 rounded-md border p-6 shadow"
