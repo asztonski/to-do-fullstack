@@ -6,7 +6,7 @@ export default function Dashboard() {
   const dashboardMode = usePageStore((s) => s.dashboardMode);
   const setPage       = usePageStore((s) => s.setPage);
 
-  if (dashboardMode !== "guest") {
+  if (dashboardMode === "guest") {
     return (
       <div className="flex flex-col items-center justify-center gap-6">
         <h1 className="text-2xl font-semibold">Todo List</h1>
