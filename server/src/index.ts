@@ -1,4 +1,5 @@
-﻿import express from "express";
+﻿import 'dotenv/config';
+import express from "express";
 import { PrismaClient } from "../../node_modules/.prisma/client/default";
 import bcrypt from "bcryptjs";
 
@@ -62,4 +63,5 @@ app.post("/login", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`API ready on http://localhost:${PORT}`);
 });
+
 
