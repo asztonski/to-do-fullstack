@@ -3,7 +3,7 @@ import 'dotenv/config';
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
-import { signToken, auth } from './jwt.js';
+import { signToken, auth } from './jwt';
 
 const prisma = new PrismaClient();
 
@@ -57,9 +57,105 @@ app.post('/login', async (req, res) => {
   }
 });
 
+app.post('/todos', auth, async (req, res) => {
+  const userId = (req as any).user.sub as number;
+  const { title, text } = req.body ?? {};
+  const value = typeof title === 'string' ? title : typeof text === 'string' ? text : '';
+  if (!value) return res.status(400).json({ error: 'Missing title' });
+
+  try {
+    const row = await prisma.todo.create({
+      data: { text: value, userId },
+      select: { id: true, text: true, done: true, createdAt: true },
+    });
+    res.status(201).json({
+      id: row.id,
+      title: row.text,
+      completed: row.done,
+      createdAt: row.createdAt,
+    });
+  } catch (err) {
+    console.error('Todo create error:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+
 /* ---------- auth test ---------- */
 app.get('/me', auth, (req, res) => {
   return res.json({ user: (req as any).user }); // { sub, email, iat, exp }
+});
+
+app.get('/todos', auth, async (req, res) => {
+  const userId = (req as any).user.sub as number;
+  try {
+    const rows = await prisma.todo.findMany({
+      where: { userId },
+      orderBy: { createdAt: 'desc' },
+      select: { id: true, text: true, done: true, createdAt: true },
+    });
+    const todos = rows.map(r => ({
+      id: r.id,
+      title: r.text,
+      completed: r.done,
+      createdAt: r.createdAt,
+    }));
+    res.json(todos);
+  } catch (err) {
+    console.error('Todos list error:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+
+// PATCH /todos/:id — aktualizacja tytułu i/lub completed (tylko właściciel)
+app.patch('/todos/:id', auth, async (req, res) => {
+  const userId = (req as any).user.sub as number;
+  const id = Number(req.params.id);
+  const { title, text, completed, done } = req.body ?? {};
+
+  const data: any = {};
+  if (typeof title === 'string') data.text = title;
+  if (typeof text === 'string') data.text = text;
+  if (typeof completed === 'boolean') data.done = completed;
+  if (typeof done === 'boolean') data.done = done;
+  if (!Object.keys(data).length) return res.status(400).json({ error: 'Nothing to update' });
+
+  try {
+    const updated = await prisma.todo.updateMany({ where: { id, userId }, data });
+    if (updated.count === 0) return res.status(404).json({ error: 'Todo not found' });
+
+    const row = await prisma.todo.findFirst({
+      where: { id, userId },
+      select: { id: true, text: true, done: true, createdAt: true },
+    });
+    res.json({
+      id: row!.id,
+      title: row!.text,
+      completed: row!.done,
+      createdAt: row!.createdAt,
+    });
+  } catch (err) {
+    console.error('Todo update error:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+// DELETE /todos/:id — usunięcie (tylko właściciel)
+app.delete('/todos/:id', auth, async (req, res) => {
+  const userId = (req as any).user.sub as number;
+  const id = Number(req.params.id);
+  try {
+    const deleted = await prisma.todo.deleteMany({ where: { id, userId } });
+    if (deleted.count === 0) return res.status(404).json({ error: 'Todo not found' });
+    res.status(204).end();
+  } catch (err) {
+    console.error('Todo delete error:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
 });
 
 /* ---------- start ---------- */
