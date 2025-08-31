@@ -4,6 +4,7 @@ import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 import { signToken, auth } from './jwt';
+import cors from 'cors';
 
 const prisma = new PrismaClient();
 
@@ -157,6 +158,12 @@ app.delete('/todos/:id', auth, async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
+
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET','POST','PATCH','DELETE'],
+  allowedHeaders: ['Content-Type','Authorization'],
+}));
 
 /* ---------- start ---------- */
 app.listen(PORT, () => {
