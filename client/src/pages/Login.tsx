@@ -1,19 +1,34 @@
 import { useState } from "react";
 import Button from "../components/UI/button/Button";
 import { usePageStore } from "../store/page";
+import { api, setToken } from "../lib/api";
 
 export default function Login() {
-  const [email, setEmail]       = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const setPage          = usePageStore((s) => s.setPage);
+  const setPage = usePageStore((s) => s.setPage);
   const setDashboardMode = usePageStore((s) => s.setDashboardMode);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    /* TODO: hook up real auth */
-    setDashboardMode("user");
-    setPage("dashboard");
+    setLoading(true);
+    setError(null);
+    try {
+      const { token } = await api<{ token: string }>("/login", {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+      });
+      setToken(token);
+      setDashboardMode("user");
+      setPage("dashboard");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Login failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -46,8 +61,10 @@ export default function Login() {
           />
         </div>
 
-        <Button type="submit" className="w-full">
-          Sign in
+        {error && <p className="text-sm text-red-500">{error}</p>}
+
+        <Button type="submit" className="w-full" disabled={loading}>
+          {loading ? "Signing in..." : "Sign in"}
         </Button>
       </form>
     </div>
