@@ -3,10 +3,12 @@ import TodoList from "../components/List/TodoList";
 import Button from "../components/UI/button/Button";
 import { usePageStore } from "../store/page";
 import { useTodoStore } from "../store/todo";
+import { setToken } from "../lib/api";
 
 export default function Dashboard() {
-  const dashboardMode = usePageStore((s) => s.dashboardMode);
-  const setPage       = usePageStore((s) => s.setPage);
+  const dashboardMode    = usePageStore((s) => s.dashboardMode);
+  const setPage          = usePageStore((s) => s.setPage);
+  const setDashboardMode = usePageStore((s) => s.setDashboardMode);
 
   const loadTodos = useTodoStore((s) => s.loadTodos);
   const loading   = useTodoStore((s) => s.loading);
@@ -15,6 +17,12 @@ export default function Dashboard() {
   useEffect(() => {
     if (dashboardMode === "user") loadTodos();
   }, [dashboardMode, loadTodos]);
+
+  const onLogout = () => {
+    setToken(null);
+    setDashboardMode("guest");
+    setPage("login");
+  };
 
   if (dashboardMode === "guest") {
     return (
@@ -31,10 +39,17 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="flex flex-col max-w-xl space-y-4 p-6">
-      <h1 className="text-2xl text-center font-semibold">My Tasks</h1>
+    <div className="flex flex-col max-w-xl space-y-6 p-6">
+      <header className="flex items-center gap-3">
+        <h1 className="text-2xl font-semibold">My Tasks</h1>
+        <Button variant="secondary" className="ml-auto" onClick={onLogout}>
+          Log out
+        </Button>
+      </header>
+
       {loading && <p className="text-sm opacity-70">Loading…</p>}
       {error && <p className="text-sm text-red-500">{error}</p>}
+
       <TodoList />
     </div>
   );
