@@ -5,9 +5,9 @@ import { usePageStore } from "./store/page";
 import Page from "./components/Page";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import User from "./pages/User";
 import History from "./pages/History";
-import Register from "./pages/Register";
 
 export default function App() {
   const page = usePageStore((s) => s.page);
@@ -17,7 +17,7 @@ export default function App() {
   useEffect(() => {
     setOnUnauthorized(() => {
       setToken(null);
-      const s = usePageStore.getState(); // unikamy zależności w efektach
+      const s = usePageStore.getState();
       s.setDashboardMode("guest");
       s.setPage("login");
     });
