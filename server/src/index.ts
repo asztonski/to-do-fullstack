@@ -1,23 +1,31 @@
-﻿// server/src/index.ts (lub server/index.ts – zgodnie z Twoim layoutem)
+﻿// server/src/index.ts
 import 'dotenv/config';
 import express from 'express';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '../../node_modules/.prisma/client/index';
 import bcrypt from 'bcryptjs';
 import { signToken, auth } from './jwt';
-import cors from 'cors';
 
 const prisma = new PrismaClient();
-
 const app = express();
 const PORT = 4000;
 
+/* ---------- CORS (bez path-to-regexp) ---------- */
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  res.header('Vary', 'Origin');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
+
 /* ---------- middleware ---------- */
-app.use(express.json()); // parses application/json bodies
+app.use(express.json());
 
 /* ---------- health ---------- */
 app.get('/', (_, res) => res.send('OK 🔥'));
 
-/* ---------- routes ---------- */
+/* ---------- auth routes ---------- */
 app.post('/register', async (req, res) => {
   const { email, password } = req.body ?? {};
   if (!email || !password) return res.status(400).json({ error: 'Missing email or password' });
@@ -58,6 +66,33 @@ app.post('/login', async (req, res) => {
   }
 });
 
+/* ---------- protected: profile ---------- */
+app.get('/me', auth, (req, res) => {
+  return res.json((req as any).user); // { sub, email, iat, exp }
+});
+
+/* ---------- protected: todos ---------- */
+app.get('/todos', auth, async (req, res) => {
+  const userId = (req as any).user.sub as number;
+  try {
+    const rows = await prisma.todo.findMany({
+      where: { userId },
+      orderBy: { createdAt: 'desc' },
+      select: { id: true, text: true, done: true, createdAt: true },
+    });
+    const todos = rows.map(r => ({
+      id: r.id,
+      title: r.text,
+      completed: r.done,
+      createdAt: r.createdAt,
+    }));
+    res.json(todos);
+  } catch (err) {
+    console.error('Todos list error:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 app.post('/todos', auth, async (req, res) => {
   const userId = (req as any).user.sub as number;
   const { title, text } = req.body ?? {};
@@ -81,37 +116,6 @@ app.post('/todos', auth, async (req, res) => {
   }
 });
 
-
-
-/* ---------- auth test ---------- */
-app.get('/me', auth, (req, res) => {
-  return res.json({ user: (req as any).user }); // { sub, email, iat, exp }
-});
-
-app.get('/todos', auth, async (req, res) => {
-  const userId = (req as any).user.sub as number;
-  try {
-    const rows = await prisma.todo.findMany({
-      where: { userId },
-      orderBy: { createdAt: 'desc' },
-      select: { id: true, text: true, done: true, createdAt: true },
-    });
-    const todos = rows.map(r => ({
-      id: r.id,
-      title: r.text,
-      completed: r.done,
-      createdAt: r.createdAt,
-    }));
-    res.json(todos);
-  } catch (err) {
-    console.error('Todos list error:', err);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
-
-
-
-// PATCH /todos/:id — aktualizacja tytułu i/lub completed (tylko właściciel)
 app.patch('/todos/:id', auth, async (req, res) => {
   const userId = (req as any).user.sub as number;
   const id = Number(req.params.id);
@@ -144,8 +148,6 @@ app.patch('/todos/:id', auth, async (req, res) => {
   }
 });
 
-
-// DELETE /todos/:id — usunięcie (tylko właściciel)
 app.delete('/todos/:id', auth, async (req, res) => {
   const userId = (req as any).user.sub as number;
   const id = Number(req.params.id);
@@ -158,12 +160,6 @@ app.delete('/todos/:id', auth, async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 });
-
-app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET','POST','PATCH','DELETE'],
-  allowedHeaders: ['Content-Type','Authorization'],
-}));
 
 /* ---------- start ---------- */
 app.listen(PORT, () => {
