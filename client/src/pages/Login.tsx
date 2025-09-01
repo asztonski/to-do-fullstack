@@ -2,14 +2,15 @@ import { useState } from "react";
 import Button from "../components/UI/button/Button";
 import { usePageStore } from "../store/page";
 import { api, setToken } from "../lib/api";
+import { Link } from "react-router-dom";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail]       = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading]   = useState(false);
+  const [error, setError]       = useState<string | null>(null);
 
-  const setPage = usePageStore((s) => s.setPage);
+  const setPage          = usePageStore((s) => s.setPage);
   const setDashboardMode = usePageStore((s) => s.setDashboardMode);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,9 +64,17 @@ export default function Login() {
 
         {error && <p className="text-sm text-red-500">{error}</p>}
 
-        <Button type="submit" className="w-full" disabled={loading}>
-          {loading ? "Signing in..." : "Sign in"}
+        <Button type="submit" className="w-full" isLoading={loading}>
+          Sign in
         </Button>
+
+        <Link
+          to="/register"
+          onClick={() => setPage("register")}
+          className="font-synth text-blue transition-all hover:text-yellow"
+        >
+          Create account
+        </Link>
       </form>
     </div>
   );
