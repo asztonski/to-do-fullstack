@@ -25,5 +25,28 @@ export function useTodos() {
     fetchTodos();
   }, [fetchTodos]);
 
-  return { todos, loading, error, refetch: fetchTodos, setTodos };
+  const addTodo = useCallback(async (title: string) => {
+    const created = await api<Todo>(
+      "/todos",
+      { method: "POST", body: JSON.stringify({ title }) },
+      true
+    );
+    setTodos((prev) => [created, ...prev]);
+  }, []);
+
+  const toggleTodo = useCallback(async (id: number, completed: boolean) => {
+    const updated = await api<Todo>(
+      `/todos/${id}`,
+      { method: "PATCH", body: JSON.stringify({ completed }) },
+      true
+    );
+    setTodos((prev) => prev.map((t) => (t.id === id ? updated : t)));
+  }, []);
+
+  const deleteTodo = useCallback(async (id: number) => {
+    await api<void>(`/todos/${id}`, { method: "DELETE" }, true);
+    setTodos((prev) => prev.filter((t) => t.id !== id));
+  }, []);
+
+  return { todos, loading, error, refetch: fetchTodos, addTodo, toggleTodo, deleteTodo };
 }

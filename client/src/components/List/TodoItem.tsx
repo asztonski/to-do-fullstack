@@ -2,7 +2,7 @@ import Button from "../UI/button/Button";
 import { useTodoStore } from "../../store/todo";
 
 interface TodoItemProps {
-  id: string;
+  id: number;
 }
 
 export default function TodoItem({ id }: TodoItemProps) {
@@ -26,7 +26,7 @@ export default function TodoItem({ id }: TodoItemProps) {
             todo.completed ? "line-through text-purple/50" : "text-white"
           }`}
         >
-          {todo.text}
+          {todo.title}
         </span>
       </label>
 

@@ -1,10 +1,20 @@
+import { useEffect } from "react";
 import TodoList from "../components/List/TodoList";
-import Button    from "../components/UI/button/Button";
+import Button from "../components/UI/button/Button";
 import { usePageStore } from "../store/page";
+import { useTodoStore } from "../store/todo";
 
 export default function Dashboard() {
   const dashboardMode = usePageStore((s) => s.dashboardMode);
   const setPage       = usePageStore((s) => s.setPage);
+
+  const loadTodos = useTodoStore((s) => s.loadTodos);
+  const loading   = useTodoStore((s) => s.loading);
+  const error     = useTodoStore((s) => s.error);
+
+  useEffect(() => {
+    if (dashboardMode === "user") loadTodos();
+  }, [dashboardMode, loadTodos]);
 
   if (dashboardMode === "guest") {
     return (
@@ -21,8 +31,10 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="flex flex-col max-w-xl space-y-8 p-6">
+    <div className="flex flex-col max-w-xl space-y-4 p-6">
       <h1 className="text-2xl text-center font-semibold">My Tasks</h1>
+      {loading && <p className="text-sm opacity-70">Loading…</p>}
+      {error && <p className="text-sm text-red-500">{error}</p>}
       <TodoList />
     </div>
   );
