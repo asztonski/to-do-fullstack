@@ -42,9 +42,6 @@ export default function Dashboard() {
     <div className="flex flex-col max-w-xl space-y-6 p-6">
       <header className="flex items-center gap-3">
         <h1 className="text-2xl font-semibold">My Tasks</h1>
-        <Button variant="secondary" className="ml-auto" onClick={onLogout}>
-          Log out
-        </Button>
       </header>
 
       {loading && <p className="text-sm opacity-70">Loading…</p>}

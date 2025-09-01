@@ -49,13 +49,6 @@ const Header: React.FC = () => {
           ) : (
             <>
               <Link
-                to="/history"
-                onClick={() => setPage("history")}
-                className="font-synth text-green transition-all hover:text-yellow"
-              >
-                History
-              </Link>
-              <Link
                 to="/account"
                 onClick={() => setPage("account")}
                 className="font-synth text-blue transition-all hover:text-yellow"

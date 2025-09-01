@@ -7,7 +7,6 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import User from "./pages/User";
-import History from "./pages/History";
 
 export default function App() {
   const page = usePageStore((s) => s.page);
@@ -52,9 +51,6 @@ export default function App() {
       break;
     case "account":
       content = <User />;
-      break;
-    case "history":
-      content = <History />;
       break;
     case "dashboard":
     default:
