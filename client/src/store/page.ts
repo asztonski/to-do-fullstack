@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 /* --------------------------- types --------------------------- */
-export type Page = "dashboard" | "login" | "account";
+export type Page = "dashboard" | "login" | "account" | "history" | "register";
 export type DashboardMode = "guest" | "user";
 
 interface PageState {

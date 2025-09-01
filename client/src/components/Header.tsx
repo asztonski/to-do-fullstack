@@ -26,13 +26,26 @@ const Header: React.FC = () => {
         {/* nav */}
         <nav className="hidden space-x-6 md:block">
           {dashboardMode === "guest" ? (
-            <Link
-              to="/login"
-              onClick={() => setPage("login")}
-              className="font-synth text-blue transition-all hover:text-yellow"
-            >
-              Login
-            </Link>
+            <ul className="flex gap-6">
+              <li>
+                <Link
+                  to="/login"
+                  onClick={() => setPage("login")}
+                  className="font-synth text-blue transition-all hover:text-yellow"
+                >
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/register"
+                  onClick={() => setPage("register")}
+                  className="font-synth text-blue transition-all hover:text-yellow"
+                >
+                  Register
+                </Link>
+              </li>
+            </ul>
           ) : (
             <>
               <Link
